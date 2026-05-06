@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ClockDebugScalarKind","Tov"],"fn":["busy_wait_for","busy_wait_until","debug_scalar_registrations","initialize","read_raw_counter"],"struct":["ClockDebugScalarRegistration","CuDuration","CuInstant","CuTime","CuTimeRange","OptionCuTime","PartialCuTimeRange","RobotClock","RobotClockMock"],"trait":["ClockProvider","SaturatingSub"],"type":["Instant"]};
