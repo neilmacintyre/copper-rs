@@ -1,0 +1,45 @@
+{
+  "name": "copper-rs",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "copper",
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/workspaces/copper-rs",
+  "capAdd": ["SYS_PTRACE"],
+  "securityOpt": ["seccomp=unconfined"],
+  "containerEnv": {
+    "CARGO_TERM_COLOR": "always",
+    "FEATURES_FLAG": "--features mock,cu-sensor-payloads/image,kornia,gst,faer,nalgebra,glam,debug_pane,bincode,log-level-debug"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml",
+        "serayuzgur.crates",
+        "vadimcn.vscode-lldb"
+      ],
+      "settings": {
+        "files.watcherExclude": {
+          "**/target/**": true
+        },
+        "search.exclude": {
+          "**/target/**": true
+        },
+        "rust-analyzer.cargo.features": "all",
+        "rust-analyzer.check.command": "clippy",
+        "[rust]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "rust-lang.rust-analyzer"
+        }
+      }
+    }
+  },
+  "postCreateCommand": "rustup show",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  }
+}
