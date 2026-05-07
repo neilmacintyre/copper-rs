@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tzdata \
     git \
     curl \
+    openssh-client \
     python3 \
     python3-pip \
     build-essential \
@@ -21,6 +22,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libclang-dev \
     sudo \
     ripgrep \
+    nano \
+    vim-tiny \
+    less \
     libgstreamer1.0-dev \
     libgstreamer-plugins-base1.0-dev \
     libgstreamer-plugins-bad1.0-dev \
