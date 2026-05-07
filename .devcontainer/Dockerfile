@@ -52,7 +52,7 @@ RUN rm -rf "${CARGO_HOME}" "${RUSTUP_HOME}" \
     && curl https://sh.rustup.rs -sSf | bash -s -- -y --no-modify-path
 
 # Toolchains, components, and embedded targets (aligned with Dockerfile.ubuntu) + rust-src for rust-analyzer
-RUN rustup toolchain install stable beta \
+RUN rustup toolchain install stable beta nightly \
     && rustup component add rustfmt clippy rust-src --toolchain stable \
     && rustup component add rustfmt clippy --toolchain beta \
     && rustup target add aarch64-unknown-none thumbv7em-none-eabihf thumbv8m.main-none-eabihf riscv32imac-unknown-none-elf --toolchain stable \
@@ -68,7 +68,8 @@ RUN cargo install cargo-generate \
     && cargo install cargo-deny \
     && cargo install typos-cli \
     && cargo install sccache \
-    && cargo install --locked prek
+    && cargo install --locked prek \
+    && cargo install --locked cargo-public-api --version 0.51.0
 
 # just (prebuilt; faster than cargo install)
 RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
